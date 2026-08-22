@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLOCK Construction</title>
+  <style>
+    :root{
+      --black:#111111;
+      --yellow:#f2c400;
+      --white:#ffffff;
+      --gray:#f4f4f1;
+      --text:#222222;
+      --muted:#6f6f6f;
+      --line:#dedede;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1180px,92%);margin:auto}
+
+    header{
+      position:sticky;top:0;z-index:10;
+      background:rgba(17,17,17,.94);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    .nav{
+      height:82px;
+      display:flex;align-items:center;justify-content:space-between;gap:30px;
+    }
+    .logo{
+      display:flex;align-items:center;
+      background:#fff;
+      padding:7px 12px;
+      border-radius:18px;
+      box-shadow:0 8px 24px rgba(0,0,0,.18);
+      transition:.25s ease;
+    }
+    .logo:hover{
+      transform:translateY(-1px);
+      box-shadow:0 10px 28px rgba(0,0,0,.24);
+    }
+    .logo img{
+      display:block;
+      width:172px;
+      height:auto;
+      border-radius:12px;
+    }
+    .menu{display:flex;align-items:center;gap:26px;color:#fff;font-size:14px;font-weight:700}
+    .menu a{position:relative;transition:.2s ease}
+    .menu a:not(.cta):after{
+      content:"";
+      position:absolute;left:0;bottom:-8px;width:0;height:2px;
+      background:var(--yellow);transition:.2s ease;
+    }
+    .menu a:not(.cta):hover:after{width:100%}
+    .menu a:hover{color:var(--yellow)}
+    .cta{
+      background:var(--yellow);color:var(--black)!important;
+      padding:13px 18px;font-weight:800;border-radius:12px;
+      box-shadow:0 8px 18px rgba(242,196,0,.18);
+    }
+
+    .hero{
+      min-height:670px;
+      background:
+        linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.48)),
+        repeating-linear-gradient(120deg, #202020 0 1px, #161616 1px 50px);
+      color:white;
+      display:flex;align-items:center;
+      position:relative;overflow:hidden;
+    }
+    .hero:after{
+      content:"";
+      position:absolute;right:-70px;bottom:-180px;
+      width:600px;height:600px;border:90px solid rgba(242,196,0,.12);
+      transform:rotate(18deg);
+    }
+    .hero-content{position:relative;z-index:1;max-width:850px;padding:90px 0}
+    .eyebrow{
+      color:var(--yellow);font-size:14px;font-weight:800;letter-spacing:2px;
+      text-transform:uppercase;margin-bottom:20px;
+    }
+    h1{
+      font-size:clamp(52px,7vw,94px);
+      line-height:.97;
+      letter-spacing:-3px;
+      max-width:900px;
+    }
+    .hero p{
+      margin-top:28px;font-size:19px;color:#ddd;max-width:640px;
+    }
+    .hero-actions{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+    .hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+    .hero-tag{
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      color:#eee;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      backdrop-filter:blur(5px);
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:52px;padding:0 22px;font-weight:800;font-size:14px;
+      border:1px solid transparent;border-radius:12px;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-yellow{background:var(--yellow);color:var(--black)}
+    .btn-dark{border-color:#777;color:#fff;background:transparent}
+
+    section{padding:100px 0}
+    .section-head{
+      display:flex;justify-content:space-between;gap:30px;align-items:end;
+      margin-bottom:50px;
+    }
+    .section-kicker{color:#8c7100;font-size:13px;font-weight:800;letter-spacing:2px}
+    h2{font-size:clamp(36px,4vw,58px);line-height:1.05;margin-top:8px}
+    .section-head p{max-width:520px;color:var(--muted)}
+
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:65px;align-items:center}
+    .photo-placeholder{
+      min-height:420px;
+      background:
+        linear-gradient(135deg,rgba(242,196,0,.9),rgba(242,196,0,.55)),
+        repeating-linear-gradient(45deg,#d5aa00 0 2px,#f2c400 2px 24px);
+      display:flex;align-items:end;padding:28px;
+      color:#111;font-weight:900;font-size:15px;
+      border-radius:26px;
+      box-shadow:0 18px 45px rgba(0,0,0,.10);
+    }
+    .about-copy p{color:var(--muted);margin:18px 0}
+    .fact{
+      border-top:1px solid var(--line);padding:17px 0;
+      display:flex;gap:18px;
+    }
+    .fact b{min-width:120px;color:#111}
+
+    .services{background:var(--gray)}
+    .service-list{border-top:1px solid #ccc}
+    .service{
+      display:grid;grid-template-columns:100px 1fr 1fr;
+      gap:25px;align-items:center;
+      padding:30px 18px;border-bottom:1px solid #ccc;
+      transition:.2s ease;border-radius:16px;
+    }
+    .service:hover{
+      background:#fff;
+      transform:translateX(6px);
+      box-shadow:0 10px 28px rgba(0,0,0,.05);
+    }
+    .service-num{font-size:34px;font-weight:900;color:#b48f00}
+    .service h3{font-size:28px}
+    .service p{color:var(--muted)}
+
+    .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .work-card{
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 14px 35px rgba(0,0,0,.06);
+    }
+    .work-img{
+      height:330px;background:
+      linear-gradient(145deg,#1a1a1a,#303030);
+      color:#aaa;display:grid;place-items:center;font-weight:700;
+    }
+    .work-copy{padding:24px}
+    .work-copy small{color:#8c7100;font-weight:800}
+    .work-copy h3{font-size:25px;margin:8px 0 10px}
+    .work-copy p{color:var(--muted)}
+
+    .process{background:var(--black);color:#fff}
+    .process .section-head p{color:#bbb}
+    .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#333}
+    .step{background:#171717;padding:28px;min-height:220px;transition:.2s ease}
+    .step:hover{background:#202020}
+    .step span{color:var(--yellow);font-size:13px;font-weight:900}
+    .step h3{margin:35px 0 12px;font-size:21px}
+    .step p{color:#aaa;font-size:14px}
+
+    .contact{
+      background:var(--yellow);
+    }
+    .contact-wrap{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:start;
+    }
+    .contact h2{color:#111}
+    .contact p{max-width:620px;margin-top:18px}
+    .contact-box{
+      background:#111;color:#fff;padding:34px;
+      border-radius:22px;
+      box-shadow:0 18px 40px rgba(0,0,0,.15);
+    }
+    .contact-row{padding:17px 0;border-bottom:1px solid #333}
+    .contact-row:last-child{border-bottom:0}
+    .contact-row small{display:block;color:#999;margin-bottom:5px}
+
+
+    .contact-intro{
+      max-width:760px;
+      margin-bottom:42px;
+      font-size:17px;
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:34px;
+      align-items:start;
+    }
+    .form-card{
+      background:#fff;
+      padding:34px;
+      border-radius:22px;
+      box-shadow:0 18px 40px rgba(0,0,0,.12);
+    }
+    .form-card h3,.contact-info h3{
+      font-size:24px;
+      margin-bottom:22px;
+    }
+    .form-group{margin-bottom:16px}
+    .form-group label{
+      display:block;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:8px;
+      color:#333;
+    }
+    .form-group input,.form-group textarea{
+      width:100%;
+      border:1px solid #ddd;
+      background:#fafafa;
+      padding:14px 15px;
+      font:inherit;
+      border-radius:12px;
+      outline:none;
+    }
+    .form-group input:focus,.form-group textarea:focus{
+      border-color:#111;
+      background:#fff;
+    }
+    .form-group textarea{min-height:150px;resize:vertical}
+    .form-submit{
+      border:0;
+      background:#111;
+      color:#fff;
+      min-height:52px;
+      padding:0 22px;
+      border-radius:12px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .contact-info{
+      background:#111;
+      color:#fff;
+      padding:34px;
+      border-radius:22px;
+      box-shadow:0 18px 40px rgba(0,0,0,.15);
+    }
+    .info-block{
+      padding:0 0 24px;
+      margin-bottom:24px;
+      border-bottom:1px solid #333;
+    }
+    .info-block:last-child{
+      border-bottom:0;
+      margin-bottom:0;
+      padding-bottom:0;
+    }
+    .info-block h4{
+      color:var(--yellow);
+      font-size:16px;
+      margin-bottom:12px;
+    }
+    .info-block p{
+      margin:7px 0;
+      color:#ddd;
+    }
+    .info-block strong{color:#fff}
+
+    footer{background:#0b0b0b;color:#aaa;padding:28px 0}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    @media(max-width:900px){
+      .menu a:not(.cta){display:none}
+      .about-grid,.contact-wrap,.contact-grid{grid-template-columns:1fr}
+      .service{grid-template-columns:70px 1fr}
+      .service p{grid-column:2}
+      .work-grid{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      h1{letter-spacing:-1.5px}
+      .logo{padding:6px 9px;border-radius:14px}
+      .logo img{width:145px;border-radius:10px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#ana" aria-label="Block Construction">
+      <img src="block-logo.jpeg" alt="Block Construction">
+    </a>
+
+    <nav class="menu">
+      <a href="#ana">ANA SƏHİFƏ</a>
+      <a href="#haqqimizda">HAQQIMIZDA</a>
+      <a href="#xidmetler">XİDMƏTLƏR</a>
+      <a href="#isler">GÖRDÜYÜMÜZ İŞLƏR</a>
+      <a href="#elaqe" class="cta">ƏLAQƏ SAXLA</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="ana">
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow">BLOCK CONSTRUCTION</div>
+        <h1>TİKİNTİ İŞLƏRİNİN İCRASI</h1>
+        <p>
+          Bünövrə, dəmir-beton, hörgü, suvaq, fasad və daxili tamamlama işləri üzrə
+          fəaliyyət göstəririk.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-yellow" href="#xidmetler">XİDMƏTLƏRƏ BAX →</a>
+          <a class="btn btn-dark" href="#elaqe">ƏLAQƏ →</a>
+        </div>
+        <div class="hero-tags">
+          <span class="hero-tag">Bünövrə işləri</span>
+          <span class="hero-tag">Dəmir-beton</span>
+          <span class="hero-tag">Hörgü və suvaq</span>
+          <span class="hero-tag">Fasad və tamamlama</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="haqqimizda">
+    <div class="container about-grid">
+      <div class="photo-placeholder">
+        BURADA ÖZ REAL TİKİNTİ FOTONUZ YERLƏŞƏCƏK
+      </div>
+      <div class="about-copy">
+        <div class="section-kicker">01 / HAQQIMIZDA</div>
+        <h2>İşimiz tikinti sahəsində konkret icra işlərinə əsaslanır.</h2>
+        <p>
+          BLOCK Construction tikinti sahəsində müxtəlif icra işləri üzrə fəaliyyət göstərir.
+          Saytda təqdim olunan xidmətlər və görülmüş işlər şirkətin faktiki fəaliyyət istiqamətlərini əks etdirir.
+        </p>
+        <div class="fact"><b>Fəaliyyət</b><span>Tikinti və tamamlama işləri</span></div>
+        <div class="fact"><b>Ərazi</b><span>Bakı və ətraf ərazilər</span></div>
+        <div class="fact"><b>Əlaqə</b><span>Telefon / WhatsApp / E-poçt</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="xidmetler">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">02 / XİDMƏTLƏR</div>
+          <h2>Xidmətlərimiz</h2>
+        </div>
+        <p>Yalnız real olaraq göstərdiyiniz xidmətləri saxlayın. Lazım olmayan bölmələri sonradan silmək mümkündür.</p>
+      </div>
+
+      <div class="service-list">
+        <div class="service">
+          <div class="service-num">01</div>
+          <h3>Bünövrə işləri</h3>
+          <p>Bünövrələrin hazırlanması və layihəyə uyğun müvafiq tikinti işlərinin icrası.</p>
+        </div>
+        <div class="service">
+          <div class="service-num">02</div>
+          <h3>Dəmir-beton konstruksiyalar</h3>
+          <p>Beton və dəmir-beton konstruksiyalar üzrə icra işləri.</p>
+        </div>
+        <div class="service">
+          <div class="service-num">03</div>
+          <h3>Hörgü və suvaq işləri</h3>
+          <p>Blok hörgüsü, arakəsmələr və müvafiq suvaq işlərinin həyata keçirilməsi.</p>
+        </div>
+        <div class="service">
+          <div class="service-num">04</div>
+          <h3>Fasad işləri</h3>
+          <p>Binaların xarici hissələrində nəzərdə tutulan fasad və tamamlama işləri.</p>
+        </div>
+        <div class="service">
+          <div class="service-num">05</div>
+          <h3>Daxili tamamlama işləri</h3>
+          <p>Tikililərin daxili hissələrində tamamlama və bəzək işlərinin icrası.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="isler">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">03 / GÖRDÜYÜMÜZ İŞLƏR</div>
+          <h2>Seçilmiş işlər</h2>
+        </div>
+        <p>Burada bütöv layihəni öz adınıza çıxarmadan, həmin obyekt üzrə konkret gördüyünüz işi göstərə bilərsiniz.</p>
+      </div>
+
+      <div class="work-grid">
+        <article class="work-card">
+          <div class="work-img">LAYİHƏ / İŞ FOTOSU</div>
+          <div class="work-copy">
+            <small>BAKI, AZƏRBAYCAN</small>
+            <h3>Obyekt üzrə görülmüş iş</h3>
+            <p>Bu hissədə sizin komandanın konkret olaraq hansı işi icra etdiyini yazın. Məsələn: blok hörgüsü və suvaq işlərinin müəyyən hissəsi.</p>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-img">LAYİHƏ / İŞ FOTOSU</div>
+          <div class="work-copy">
+            <small>BAKI, AZƏRBAYCAN</small>
+            <h3>İkinci obyekt üzrə iş</h3>
+            <p>Obyektin adı, görülən işin növü və əgər uyğundursa, işin əhatə etdiyi hissə burada göstərilə bilər.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker" style="color:var(--yellow)">04 / İŞ PROSESİ</div>
+          <h2>İş prosesi</h2>
+        </div>
+        <p>Bu bölməni yalnız faktiki iş prosesiniz buna uyğundursa saxlayın.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step"><span>01</span><h3>Müraciət</h3><p>Görüləcək iş barədə ilkin məlumatın alınması.</p></div>
+        <div class="step"><span>02</span><h3>Baxış</h3><p>İş sahəsi və həcmi ilə tanışlıq.</p></div>
+        <div class="step"><span>03</span><h3>Razılaşma</h3><p>İşin şərtlərinin və əhatəsinin razılaşdırılması.</p></div>
+        <div class="step"><span>04</span><h3>İcra</h3><p>Razılaşdırılmış tikinti işlərinin həyata keçirilməsi.</p></div>
+        <div class="step"><span>05</span><h3>Təhvil</h3><p>Görülmüş işlərin təhvil verilməsi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="elaqe">
+    <div class="container">
+      <div class="section-kicker">05 / ƏLAQƏ</div>
+      <h2>Əlaqə</h2>
+      <p class="contact-intro">
+        Onlayn müraciət formasını dolduraraq müraciətinizi bizə ünvanlaya və ya aşağıdakı əlaqə məlumatları ilə bizimlə əlaqə yarada bilərsiniz.
+      </p>
+
+      <div class="contact-grid">
+        <div class="form-card">
+          <h3>Onlayn müraciət</h3>
+          <form onsubmit="event.preventDefault(); alert('Demo formadır. Sonradan e-mail və ya digər sistemə qoşula bilər.');">
+            <div class="form-group">
+              <label for="name">Ad, Soyad</label>
+              <input id="name" type="text" placeholder="Adınızı və soyadınızı daxil edin">
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail ünvanı</label>
+              <input id="email" type="email" placeholder="E-mail ünvanınızı daxil edin">
+            </div>
+            <div class="form-group">
+              <label for="subject">Mövzu</label>
+              <input id="subject" type="text" placeholder="Müraciətin mövzusu">
+            </div>
+            <div class="form-group">
+              <label for="message">Mesaj</label>
+              <textarea id="message" placeholder="Mesajınızı buraya daxil edin"></textarea>
+            </div>
+            <button class="form-submit" type="submit">MÜRACİƏTİ GÖNDƏR →</button>
+          </form>
+        </div>
+
+        <aside class="contact-info">
+          <div class="info-block">
+            <h4>Ofis</h4>
+            <p><strong>Ünvan:</strong> Sonradan əlavə olunacaq</p>
+          </div>
+
+          <div class="info-block">
+            <h4>Əlaqə məlumatları</h4>
+            <p><strong>Telefon:</strong> +994 XX XXX XX XX</p>
+            <p><strong>WhatsApp:</strong> +994 XX XXX XX XX</p>
+            <p><strong>E-mail:</strong> info@blockconstruction.az</p>
+          </div>
+
+          <div class="info-block">
+            <h4>İş saatları</h4>
+            <p><strong>İş saatları:</strong> Dəqiqləşdiriləcək</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 BLOCK Construction</div>
+    <div>Tikinti və tamamlama işləri</div>
+  </div>
+</footer>
+
+</body>
+</html>
