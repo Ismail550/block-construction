@@ -468,56 +468,33 @@
       <div class="contact-grid">
         <div class="form-card">
           <h3>Onlayn müraciət</h3>
-          <form name="muraciet" method="POST" data-netlify="true" action="/">
+          <form name="muraciet" method="POST" data-netlify="true" id="muraciet-form">
   <input type="hidden" name="form-name" value="muraciet">
+
   <div class="form-group">
     <label for="name">Ad, Soyad</label>
-    <input
-      id="name"
-      name="name"
-      type="text"
-      placeholder="Adınızı və soyadınızı daxil edin"
-      required
-    >
+    <input id="name" name="name" type="text" placeholder="Adınızı və soyadınızı daxil edin" required>
   </div>
 
   <div class="form-group">
     <label for="email">E-mail ünvanı</label>
-    <input
-      id="email"
-      name="email"
-      type="email"
-      placeholder="E-mail ünvanınızı daxil edin"
-      required
-    >
+    <input id="email" name="email" type="email" placeholder="E-mail ünvanınızı daxil edin" required>
   </div>
 
   <div class="form-group">
     <label for="subject">Mövzu</label>
-    <input
-      id="subject"
-      name="subject"
-      type="text"
-      placeholder="Müraciətin mövzusu"
-      required
-    >
+    <input id="subject" name="subject" type="text" placeholder="Müraciətin mövzusu" required>
   </div>
 
   <div class="form-group">
     <label for="message">Mesaj</label>
-    <textarea
-      id="message"
-      name="message"
-      placeholder="Mesajınızı buraya daxil edin"
-      required
-    ></textarea>
+    <textarea id="message" name="message" placeholder="Mesajınızı buraya daxil edin" required></textarea>
   </div>
 
-  <button class="form-submit" type="submit">
-    MÜRACİƏTİ GÖNDƏR →
-  </button>
+  <button class="form-submit" type="submit">MÜRACİƏTİ GÖNDƏR →</button>
+
+  <p id="form-status"></p>
 </form>
-          </form>
         </div>
 
         <aside class="contact-info">
@@ -549,6 +526,36 @@
     <div>Tikinti və tamamlama işləri</div>
   </div>
 </footer>
+<script>
+const form = document.getElementById("muraciet-form");
+const status = document.getElementById("form-status");
 
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  status.textContent = "Göndərilir...";
+
+  try {
+    const formData = new FormData(form);
+
+    const response = await fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams(formData).toString()
+    });
+
+    if (!response.ok) {
+      throw new Error("Göndərilmədi");
+    }
+
+    status.textContent = "Müraciətiniz uğurla göndərildi.";
+    form.reset();
+  } catch (error) {
+    status.textContent = "Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.";
+  }
+});
+</script>
 </body>
 </html>
