@@ -455,16 +455,8 @@
    .contact-map{
   width:100%;
   overflow:hidden;
-  padding-bottom:40px;
-  background:#0b0b0b;
-}
-
-.contact-map iframe{
-  display:block;
-  width:100%;
-  height:450px;
-  border:0;
-}
+  padding-bottom:35px;
+  background:var(--yellow);
 }
 
 .contact-map iframe{
@@ -479,7 +471,18 @@
     height:330px;
   }
 }
+  }
+}
   </style>
+  .contact-link{
+  color:inherit;
+  text-decoration:none;
+  transition:.2s ease;
+}
+
+.contact-link:hover{
+  color:var(--yellow);
+}
 </head>
 <body>
 
@@ -705,16 +708,30 @@
         <aside class="contact-info">
           <div class="info-block">
             <h4>Ofis</h4>
-            <p><strong>Ünvan:</strong>Məmməd Araz 35B</p>
+            <p>
+  <strong>Ünvan:</strong>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=35+Mammad+Araz+Baku"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="contact-link">
+    Məmməd Araz 35B, Bakı
+  </a>
+</p>
           </div>
 
           <div class="info-block">
             <h4>Əlaqə məlumatları</h4>
             <p>
   <strong>Telefon:</strong>
-  <a href="tel:+99450755116" class="phone-link">+994 50 755 11 16</a>
+  <a href="tel:+994703356362" class="phone-link">+994 70 335 63 62</a>
 </p>
-            <p><strong>E-mail:</strong>office@block-construction.az</p>
+            <p>
+  <strong>E-mail:</strong>
+  <a href="mailto:office@block-construction.az"
+     class="contact-link">
+    office@block-construction.az
+  </a>
+</p>
             <div class="social-links">
 
   <!-- WHATSAPP -->
@@ -755,8 +772,10 @@
           </div>
 
           <div class="info-block">
-            <h4>İş saatları</h4>
-            <p><strong>İş saatları:</strong> Dəqiqləşdiriləcək</p>
+  <h4>İş saatları</h4>
+  <p><strong>Bazar ertəsi – Cümə:</strong> 09:00 – 18:00</p>
+  <p><strong>Şənbə – Bazar:</strong> İstirahət</p>
+</div>
           </div>
         </aside>
       </div>
