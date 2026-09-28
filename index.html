@@ -615,6 +615,10 @@
     font-size:15px;
   }
 }
+    .language-switch{display:flex;justify-content:flex-end;gap:4px;margin-bottom:28px}
+.language-switch a{min-width:42px;padding:7px 9px;text-align:center;border:1px solid rgba(255,255,255,.35);border-radius:7px;color:#eee;font-size:12px;font-weight:800;letter-spacing:.04em;transition:background .2s,color .2s,border-color .2s}
+.language-switch a:hover{border-color:var(--yellow);color:var(--yellow)}
+.language-switch a[aria-current="page"]{background:var(--yellow);border-color:var(--yellow);color:#111}
   </style>
 </head>
 <body>
@@ -639,6 +643,14 @@
   <section class="hero" id="ana">
     <div class="container">
       <div class="hero-content">
+        <div class="hero-content">
+  <nav class="language-switch" aria-label="Language / Dil / Язык">
+    <a href="/" aria-current="page">AZ</a>
+    <a href="/en/">EN</a>
+    <a href="/ru/">RU</a>
+  </nav>
+
+  <div class="eyebrow">BLOCK CONSTRUCTION</div>
         <div class="eyebrow">BLOCK CONSTRUCTION</div>
         <h1>TİKİNTİ İŞLƏRİNİN İCRASI</h1>
         <p>
