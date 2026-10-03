@@ -8,8 +8,12 @@
 <link rel="shortcut icon" href="/favicon.ico">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLOCK Construction | Строительные работы</title>
-  <meta name="description" content="Строительные и отделочные работы в Азербайджане. Услуги и контакты BLOCK Construction.">
+  <meta name="theme-color" content="#111111">
+  <title>BLOCK Construction | Выполнение строительных работ</title>
+  <meta name="description" content="BLOCK Construction выполняет строительные и отделочные работы в Азербайджане в соответствии с требованиями проекта и согласованным планом.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BLOCK Construction | Выполнение строительных работ">
+  <meta property="og:description" content="BLOCK Construction выполняет строительные и отделочные работы в Азербайджане в соответствии с требованиями проекта и согласованным планом.">
   <style>
     :root{
       --black:#111111;
@@ -134,31 +138,25 @@
     h2{font-size:clamp(36px,4vw,58px);line-height:1.05;margin-top:8px}
     .section-head p{max-width:520px;color:var(--muted)}
 
-    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:65px;align-items:center}
-    .photo-placeholder{
-      min-height:420px;
-      background:
-        linear-gradient(135deg,rgba(242,196,0,.9),rgba(242,196,0,.55)),
-        repeating-linear-gradient(45deg,#d5aa00 0 2px,#f2c400 2px 24px);
-      display:flex;align-items:end;padding:28px;
-      color:#111;font-weight:900;font-size:15px;
-      border-radius:26px;
-      box-shadow:0 18px 45px rgba(0,0,0,.10);
-    }
-    .photo-placeholder img{
-  width:100%;
-  height:650px;
-  object-fit:cover;
-  object-position:center;
-  display:block;
-  border-radius:26px;
-}
-    .about-copy p{color:var(--muted);margin:18px 0}
-    .fact{
-      border-top:1px solid var(--line);padding:17px 0;
-      display:flex;gap:18px;
-    }
-    .fact b{min-width:120px;color:#111}
+    .about-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:72px;align-items:center}
+    .about-visual{position:relative;min-height:560px;overflow:hidden;border-radius:28px;background:#111;box-shadow:0 22px 55px rgba(0,0,0,.14)}
+    .about-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.78));pointer-events:none}
+    .about-visual img{width:100%;height:620px;object-fit:cover;object-position:center;display:block}
+    .about-badge{position:absolute;left:24px;bottom:24px;z-index:1;display:flex;align-items:center;gap:15px;padding:16px 20px;background:rgba(17,17,17,.9);color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:16px;backdrop-filter:blur(10px)}
+    .about-badge strong{color:var(--yellow);font-size:34px;line-height:1}
+    .about-badge span{max-width:125px;font-size:13px;font-weight:800;line-height:1.3;text-transform:uppercase;letter-spacing:.7px}
+    .about-copy>p{color:var(--muted);margin:20px 0 30px;font-size:17px;line-height:1.75}
+    .about-points{border-top:1px solid var(--line)}
+    .about-point{display:grid;grid-template-columns:42px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+    .about-point>span{color:#9a7b00;font-size:13px;font-weight:900;padding-top:3px}
+    .about-point strong{display:block;color:#111;font-size:17px;margin-bottom:5px}
+    .about-point p{color:var(--muted);font-size:14px;line-height:1.6;margin:0}
+    .about-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px}
+    .about-meta div{background:var(--gray);padding:15px 17px;border-radius:14px}
+    .about-meta b{display:block;color:#111;font-size:12px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+    .about-meta span{color:var(--muted);font-size:14px}
+    @media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:42px}.about-visual{min-height:480px}.about-visual img{height:540px}}
+    @media(max-width:600px){.about-visual{min-height:390px;border-radius:22px}.about-visual img{height:440px}.about-badge{left:16px;bottom:16px;padding:13px 16px}.about-badge strong{font-size:28px}.about-meta{grid-template-columns:1fr}}
 
     .services{background:var(--gray)}
     .service-list{border-top:1px solid #ccc}
@@ -667,7 +665,7 @@
 <div class="eyebrow">BLOCK CONSTRUCTION</div>
         <h1>СТРОИТЕЛЬНЫЕ РАБОТЫ</h1>
         <p>
-          Наша команда выполняет строительные работы с вниманием к качеству и надёжности.
+          Мы выполняем согласованный объём строительных работ в соответствии с техническими требованиями и утверждённым планом.
         </p>
         <div class="hero-actions">
           <a class="btn btn-yellow" href="#xidmetler">НАШИ УСЛУГИ →</a>
@@ -685,18 +683,23 @@
 
   <section id="haqqimizda">
     <div class="container about-grid">
-      <div class="photo-placeholder">
-      <img src="../haqqimizda.jpg" alt="BLOCK Construction">
+      <div class="about-visual">
+        <img src="../haqqimizda.jpg" alt="Специалисты BLOCK Construction изучают строительный проект" width="640" height="1136" loading="lazy">
+        <div class="about-badge"><strong>10</strong><span>Направлений работ</span></div>
       </div>
       <div class="about-copy">
         <div class="section-kicker">01 / О НАС</div>
-        <h2>Качество и надёжность в строительстве.</h2>
-        <p>
-          BLOCK Construction профессионально выполняет строительные и отделочные работы. Наша цель — качественно и ответственно выполнять каждую задачу в согласованные сроки.
-        </p>
-        <div class="fact"><b>Деятельность</b><span>Строительные и отделочные работы</span></div>
-        <div class="fact"><b>География</b><span>По всему Азербайджану</span></div>
-        <div class="fact"><b>Контакты</b><span>Телефон / WhatsApp / Эл. почта</span></div>
+        <h2>Надёжное выполнение в соответствии с требованиями проекта.</h2>
+        <p>BLOCK Construction выполняет строительные и отделочные работы в соответствии с техническими требованиями, согласованным объёмом и планом реализации. Компания взаимодействует с подрядчиками и партнёрами, обеспечивая ответственное выполнение работ на разных этапах строительства.</p>
+        <div class="about-points">
+          <div class="about-point"><span>01</span><div><strong>Выполнение по проекту</strong><p>Каждый объём работ выполняется в соответствии с техническими требованиями и согласованными условиями.</p></div></div>
+          <div class="about-point"><span>02</span><div><strong>Широкий спектр работ</strong><p>Десять направлений: от фундамента и отделки до инженерных сетей, металлоконструкций и гидроизоляции.</p></div></div>
+          <div class="about-point"><span>03</span><div><strong>Согласованный подход</strong><p>Работа организуется по понятным этапам и координируется с подрядчиками и партнёрами проекта.</p></div></div>
+        </div>
+        <div class="about-meta">
+          <div><b>Деятельность</b><span>Строительные и отделочные работы</span></div>
+          <div><b>География</b><span>Азербайджан</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -903,7 +906,7 @@
       <div class="section-kicker">06 / КОНТАКТЫ</div>
       <h2>Контакты</h2>
       <p class="contact-intro">
-        Отправьте нам сообщение через форму или воспользуйтесь контактами ниже.
+        Свяжитесь с нами, чтобы получить дополнительную информацию о компании, возможностях сотрудничества и выполняемых строительных работах.
       </p>
 
       <div class="contact-grid">
@@ -1036,7 +1039,7 @@
         </a>
 
         <p>
-          Строительные и отделочные работы.
+          Строительные и отделочные работы в соответствии с требованиями проекта.
         </p>
       </div>
 
