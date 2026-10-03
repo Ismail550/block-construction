@@ -1,1 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="shortcut icon" href="/favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLOCK Construction | Construction Works</title>
+  <meta name="description" content="Construction and finishing works in Azerbaijan. Explore BLOCK Construction services and contact information.">
+  <style>
+    :root{
+      --black:#111111;
+      --yellow:#f2c400;
+      --white:#ffffff;
+      --gray:#f4f4f1;
+      --text:#222222;
+      --muted:#6f6f6f;
+      --line:#dedede;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1180px,92%);margin:auto}
 
+    header{
+      position:sticky;top:0;z-index:10;
+      background:rgba(17,17,17,.94);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    .nav{
+      height:82px;
+      display:flex;align-items:center;justify-content:space-between;gap:30px;
+    }
+    .logo{
+      display:flex;align-items:center;
+      background:#fff;
+      padding:7px 12px;
+      border-radius:18px;
+      box-shadow:0 8px 24px rgba(0,0,0,.18);
+      transition:.25s ease;
+    }
+    .logo:hover{
+      transform:translateY(-1px);
+      box-shadow:0 10px 28px rgba(0,0,0,.24);
+    }
+    .logo img{
+      display:block;
+      width:172px;
+      height:auto;
+      border-radius:12px;
+    }
+    .menu{display:flex;align-items:center;gap:26px;color:#fff;font-size:14px;font-weight:700}
+    .menu a{position:relative;transition:.2s ease}
+    .menu > a:not(.cta):after{
+      content:"";
+      position:absolute;left:0;bottom:-8px;width:0;height:2px;
+      background:var(--yellow);transition:.2s ease;
+    }
+    .menu > a:not(.cta):hover:after{width:100%}
+    .menu a:hover{color:var(--yellow)}
+    .cta{
+      background:var(--yellow);color:var(--black)!important;
+      padding:13px 18px;font-weight:800;border-radius:12px;
+      box-shadow:0 8px 18px rgba(242,196,0,.18);
+    }
+
+    .hero{
+      min-height:670px;
+      background:
+        linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.48)),
+        repeating-linear-gradient(120deg, #202020 0 1px, #161616 1px 50px);
+      color:white;
+      display:flex;align-items:center;
+      position:relative;overflow:hidden;
+    }
+    .hero:after{
+      content:"";
+      position:absolute;right:-70px;bottom:-180px;
+      width:600px;height:600px;border:90px solid rgba(242,196,0,.12);
+      transform:rotate(18deg);
+    }
+    .hero-content{position:relative;z-index:1;max-width:850px;padding:90px 0}
+    .eyebrow{
+      color:var(--yellow);font-size:14px;font-weight:800;letter-spacing:2px;
+      text-transform:uppercase;margin-bottom:20px;
+    }
+    h1{
+      font-size:clamp(52px,7vw,94px);
+      line-height:.97;
+      letter-spacing:-3px;
+      max-width:900px;
+    }
+    .hero p{
+      margin-top:28px;font-size:19px;color:#ddd;max-width:640px;
+    }
+    .hero-actions{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+    .hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+    .hero-tag{
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      color:#eee;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      backdrop-filter:blur(5px);
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:52px;padding:0 22px;font-weight:800;font-size:14px;
+      border:1px solid transparent;border-radius:12px;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-yellow{background:var(--yellow);color:var(--black)}
+    .btn-dark{border-color:#777;color:#fff;background:transparent}
+
+    section{padding:100px 0}
+    .section-head{
+      display:flex;justify-content:space-between;gap:30px;align-items:end;
+      margin-bottom:50px;
+    }
+    .section-kicker{color:#8c7100;font-size:13px;font-weight:800;letter-spacing:2px}
+    h2{font-size:clamp(36px,4vw,58px);line-height:1.05;margin-top:8px}
+    .section-head p{max-width:520px;color:var(--muted)}
+
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:65px;align-items:center}
+    .photo-placeholder{
+      min-height:420px;
+      background:
+        linear-gradient(135deg,rgba(242,196,0,.9),rgba(242,196,0,.55)),
+        repeating-linear-gradient(45deg,#d5aa00 0 2px,#f2c400 2px 24px);
+      display:flex;align-items:end;padding:28px;
+      color:#111;font-weight:900;font-size:15px;
+      border-radius:26px;
+      box-shadow:0 18px 45px rgba(0,0,0,.10);
+    }
+    .photo-placeholder img{
+  width:100%;
+  height:650px;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  border-radius:26px;
+}
+    .about-copy p{color:var(--muted);margin:18px 0}
+    .fact{
+      border-top:1px solid var(--line);padding:17px 0;
+      display:flex;gap:18px;
+    }
+    .fact b{min-width:120px;color:#111}
+
+    .services{background:var(--gray)}
+    .service-list{border-top:1px solid #ccc}
+    .service{
+      display:grid;grid-template-columns:100px 1fr 1fr;
+      gap:25px;align-items:center;
+      padding:30px 18px;border-bottom:1px solid #ccc;
+      transition:.2s ease;border-radius:16px;
+    }
+    .service:hover{
+      background:#fff;
+      transform:translateX(6px);
+      box-shadow:0 10px 28px rgba(0,0,0,.05);
+    }
+    .service-num{font-size:34px;font-weight:900;color:#b48f00}
+    .service h3{font-size:28px}
+    .service p{color:var(--muted)}
+
+    .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .work-card{
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 14px 35px rgba(0,0,0,.06);
+    }
+    .work-img{
+      height:330px;background:
+      linear-gradient(145deg,#1a1a1a,#303030);
+      color:#aaa;display:grid;place-items:center;font-weight:700;
+    }
+    .work-copy{padding:24px}
+    .work-copy small{color:#8c7100;font-weight:800}
+    .work-copy h3{font-size:25px;margin:8px 0 10px}
+    .work-copy p{color:var(--muted)}
+
+    .process{background:var(--black);color:#fff}
+    .process .section-head p{color:#bbb}
+    .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#333}
+    .step{background:#171717;padding:28px;min-height:220px;transition:.2s ease}
+    .step:hover{background:#202020}
+    .step span{color:var(--yellow);font-size:13px;font-weight:900}
+    .step h3{margin:35px 0 12px;font-size:21px}
+    .step p{color:#aaa;font-size:14px}
+
+    .contact{
+      background:var(--yellow);
+    }
+    .contact-wrap{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:start;
+    }
+    .contact h2{color:#111}
+    .contact p{max-width:620px;margin-top:18px}
+    .contact-box{
+      background:#111;color:#fff;padding:34px;
+      border-radius:22px;
+      box-shadow:0 18px 40px rgba(0,0,0,.15);
+    }
+    .contact-row{padding:17px 0;border-bottom:1px solid #333}
+    .contact-row:last-child{border-bottom:0}
+    .contact-row small{display:block;color:#999;margin-bottom:5px}
+
+
+    .contact-intro{
+      max-width:760px;
+      margin-bottom:42px;
+      font-size:17px;
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:34px;
+      align-items:start;
+    }
+    .form-card{
+      background:#fff;
+      padding:34px;
+      border-radius:22px;
+      box-shadow:0 18px 40px rgba(0,0,0,.12);
+    }
+    .form-card h3,.contact-info h3{
+      font-size:24px;
+      margin-bottom:22px;
+    }
+    .form-group{margin-bottom:16px}
+    .form-group label{
+      display:block;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:8px;
+      color:#333;
+    }
+    .form-group input,.form-group textarea{
+      width:100%;
+      border:1px solid #ddd;
+      background:#fafafa;
+      padding:14px 15px;
+      font:inherit;
+      border-radius:12px;
+      outline:none;
+    }
+    .form-group input:focus,.form-group textarea:focus{
+      border-color:#111;
+      background:#fff;
+    }
+    .form-group textarea{min-height:150px;resize:vertical}
+    .form-submit{
+      border:0;
+      background:#111;
+      color:#fff;
+      min-height:52px;
+      padding:0 22px;
+      border-radius:12px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .contact-info{
+      background:#111;
+      color:#fff;
+      padding:34px;
+      border-radius:22px;
+      box-shadow:0 18px 40px rgba(0,0,0,.15);
+    }
+    .info-block{
+      padding:0 0 24px;
+      margin-bottom:24px;
+      border-bottom:1px solid #333;
+    }
+    .info-block:last-child{
+      border-bottom:0;
+      margin-bottom:0;
+      padding-bottom:0;
+    }
+    .info-block h4{
+      color:var(--yellow);
+      font-size:16px;
+      margin-bottom:12px;
+    }
+    .info-block p{
+      margin:7px 0;
+      color:#ddd;
+    }
+    .info-block strong{color:#fff}
+
+    footer{
+  background:#0b0b0b;
+  color:#fff;
+  padding:70px 0 25px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.35fr .8fr .9fr 1fr;
+  gap:55px;
+  align-items:start;
+}
+
+.footer-logo{
+  display:inline-flex;
+  background:#fff;
+  padding:10px 14px;
+  border-radius:22px;
+  margin-bottom:22px;
+}
+
+.footer-logo img{
+  width:175px;
+  height:auto;
+  display:block;
+  border-radius:12px;
+}
+
+.footer-about p{
+  color:#999;
+  max-width:300px;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.footer-title{
+  color:var(--yellow);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  margin-bottom:20px;
+}
+
+.footer-links{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+
+.footer-links a{
+  color:#bbb;
+  font-size:14px;
+  transition:.2s;
+}
+
+.footer-links a:hover{
+  color:var(--yellow);
+  transform:translateX(3px);
+}
+
+.footer-contact p{
+  color:#bbb;
+  font-size:14px;
+  margin-bottom:9px;
+}
+
+.footer-contact a:hover{
+  color:var(--yellow);
+}
+
+.social-links{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.social-link{
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #333;
+  border-radius:14px;
+  transition:.25s;
+}
+
+.social-link svg{
+  width:20px;
+  height:20px;
+  fill:#fff;
+}
+
+.social-link:hover{
+  background:var(--yellow);
+  border-color:var(--yellow);
+  transform:translateY(-3px);
+}
+
+.social-link:hover svg{
+  fill:#111;
+}
+
+.footer-bottom{
+  border-top:1px solid #262626;
+  margin-top:55px;
+  padding-top:22px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  color:#777;
+  font-size:13px;
+}
+
+@media(max-width:900px){
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+  }
+}
+
+    @media(max-width:900px){
+      .menu > a:not(.cta){display:none}
+      .about-grid,.contact-wrap,.contact-grid{grid-template-columns:1fr}
+      .service{grid-template-columns:70px 1fr}
+      .service p{grid-column:2}
+      .work-grid{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      h1{letter-spacing:-1.5px}
+      .logo{padding:6px 9px;border-radius:14px}
+      .logo img{width:145px;border-radius:10px}
+    }
+    .phone-link{
+  color:inherit;
+  text-decoration:none;
+  transition:.2s ease;
+}
+
+.phone-link:hover{
+  color:var(--yellow);
+}
+   .contact-map{
+  width:100%;
+  overflow:hidden;
+  padding-bottom:35px;
+  background:var(--yellow);
+}
+
+.contact-map iframe{
+  display:block;
+  width:100%;
+  height:450px;
+  border:0;
+}
+
+@media(max-width:700px){
+  .contact-map iframe{
+    height:330px;
+  }
+}
+    .contact-link{
+  color:inherit;
+  text-decoration:none;
+  transition:.2s ease;
+}
+
+.contact-link:hover{
+  color:var(--yellow);
+}
+    /* ===== FAQ ===== */
+
+.faq-section{
+  background:#f4f4f1;
+  padding:100px 0;
+}
+
+.faq-heading{
+  max-width:760px;
+  margin-bottom:42px;
+}
+
+.faq-heading h2{
+  margin:0 0 16px;
+  color:#111;
+  font-size:clamp(34px,4vw,52px);
+}
+
+.faq-heading p{
+  margin:0;
+  max-width:620px;
+  color:#666;
+  font-size:17px;
+  line-height:1.7;
+}
+
+.faq-list{
+  max-width:950px;
+}
+
+.faq-item{
+  background:#fff;
+  border:1px solid #dedede;
+  border-radius:16px;
+  margin-bottom:14px;
+  overflow:hidden;
+  transition:border-color .25s ease, box-shadow .25s ease;
+}
+
+.faq-item:hover{
+  border-color:var(--yellow);
+  box-shadow:0 10px 28px rgba(0,0,0,.06);
+}
+
+.faq-item[open]{
+  border-color:var(--yellow);
+}
+
+.faq-item summary{
+  position:relative;
+  list-style:none;
+  cursor:pointer;
+  padding:24px 75px 24px 26px;
+  color:#111;
+  font-size:17px;
+  font-weight:800;
+  line-height:1.4;
+  user-select:none;
+}
+
+.faq-item summary::-webkit-details-marker{
+  display:none;
+}
+
+.faq-item summary::after{
+  content:"+";
+  position:absolute;
+  right:24px;
+  top:50%;
+  transform:translateY(-50%);
+  width:36px;
+  height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--yellow);
+  color:#111;
+  border-radius:50%;
+  font-size:24px;
+  font-weight:500;
+  line-height:1;
+  transition:transform .25s ease;
+}
+
+.faq-item[open] summary::after{
+  content:"−";
+  transform:translateY(-50%) rotate(180deg);
+}
+
+.faq-answer{
+  padding:0 75px 24px 26px;
+}
+
+.faq-answer p{
+  margin:0;
+  color:#666;
+  line-height:1.75;
+  font-size:16px;
+}
+
+@media(max-width:700px){
+  .faq-section{
+    padding:65px 0;
+  }
+
+  .faq-heading{
+    margin-bottom:30px;
+  }
+
+  .faq-heading p{
+    font-size:16px;
+  }
+
+  .faq-item summary{
+    padding:20px 62px 20px 20px;
+    font-size:16px;
+  }
+
+  .faq-item summary::after{
+    right:17px;
+    width:32px;
+    height:32px;
+    font-size:21px;
+  }
+
+  .faq-answer{
+    padding:0 20px 20px;
+  }
+
+  .faq-answer p{
+    font-size:15px;
+  }
+}
+
+    /* Language switcher in the hero */
+    .language-switch{display:flex;align-items:center;gap:4px;margin-left:2px;padding-left:12px;border-left:1px solid rgba(255,255,255,.22)}
+    .language-switch a{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:34px;padding:0 8px;border:1px solid rgba(255,255,255,.28);border-radius:8px;color:#eee;font-size:11px;font-weight:800;letter-spacing:.04em;transition:.2s ease}
+    .language-switch a:hover{border-color:var(--yellow);color:var(--yellow)}
+    .language-switch a[aria-current="page"]{background:var(--yellow);border-color:var(--yellow);color:#111}
+    @media(max-width:900px){
+      .menu > a:not(.cta){display:none}
+      .menu{gap:10px}
+      .menu .cta{padding:10px 12px;font-size:12px}
+      .language-switch{padding-left:8px}
+      .language-switch a{min-width:27px;height:32px;padding:0 5px}
+    }
+    @media(max-width:600px){
+      .nav{gap:8px}
+      .logo img{width:118px}
+      .menu{gap:7px}
+      .menu .cta{padding:9px 10px;font-size:11px}
+      .language-switch{gap:3px;padding-left:6px}
+      .language-switch a{min-width:25px;padding:0 4px;font-size:10px}
+    }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#ana" aria-label="Block Construction">
+      <img src="../block-construction.jpeg.png" alt="Block Construction">
+    </a>
+
+    <nav class="menu">
+      <a href="#ana">HOME</a>
+      <a href="#haqqimizda">ABOUT US</a>
+      <a href="#xidmetler">SERVICES</a>
+      <a href="#isler">OUR WORK</a>
+      <a href="#elaqe" class="cta">CONTACT US</a>
+      <div class="language-switch" aria-label="Language selection">
+        <a href="/">AZ</a>
+        <a href="/en/" aria-current="page">EN</a>
+        <a href="/ru/">RU</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="ana">
+    <div class="container">
+      <div class="hero-content">
+<div class="eyebrow">BLOCK CONSTRUCTION</div>
+        <h1>CONSTRUCTION WORKS</h1>
+        <p>
+          Our team carries out construction work with a focus on quality and reliability.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-yellow" href="#xidmetler">VIEW SERVICES →</a>
+          <a class="btn btn-dark" href="#elaqe">CONTACT →</a>
+        </div>
+        <div class="hero-tags">
+          <span class="hero-tag">Experienced team</span>
+          <span class="hero-tag">Quality workmanship</span>
+          <span class="hero-tag">Timely delivery</span>
+          <span class="hero-tag">Responsible approach</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="haqqimizda">
+    <div class="container about-grid">
+      <div class="photo-placeholder">
+      <img src="../haqqimizda.jpg" alt="BLOCK Construction">
+      </div>
+      <div class="about-copy">
+        <div class="section-kicker">01 / ABOUT US</div>
+        <h2>Quality and reliability in construction.</h2>
+        <p>
+          At BLOCK Construction, we carry out construction and finishing work with a professional approach. We aim to deliver each job responsibly, to a high standard and within the agreed timeframe.
+        </p>
+        <div class="fact"><b>What we do</b><span>Construction and finishing works</span></div>
+        <div class="fact"><b>Coverage</b><span>Across Azerbaijan</span></div>
+        <div class="fact"><b>Contact</b><span>Phone / WhatsApp / Email</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="xidmetler">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">02 / SERVICES</div>
+          <h2>Our services</h2>
+        </div>
+
+      </div>
+
+      <div class="service-list">
+        <div class="service">
+          <div class="service-num">01</div>
+          <h3>Foundation works</h3>
+          <p>Foundation preparation and related construction work in accordance with the project.</p>
+        </div>
+        <div class="service">
+          <div class="service-num">02</div>
+          <h3>Reinforced concrete structures</h3>
+          <p>Construction work involving concrete and reinforced concrete structures.</p>
+        </div>
+        <div class="service">
+          <div class="service-num">03</div>
+          <h3>Masonry and plastering</h3>
+          <p>Block masonry, partitions and associated plastering work.</p>
+        </div>
+        <div class="service">
+          <div class="service-num">04</div>
+          <h3>Facade works</h3>
+          <p>Facade and finishing work on building exteriors.</p>
+        </div>
+        <div class="service">
+          <div class="service-num">05</div>
+          <h3>Interior finishing</h3>
+          <p>Finishing and decorative work inside buildings.</p>
+          </div>
+          <div class="service">
+  <div class="service-num">06</div>
+  <h3>Steel structures</h3>
+  <p>Fabrication and installation of steel structures.</p>
+</div>
+
+<div class="service">
+  <div class="service-num">07</div>
+  <h3>Sewer line installation</h3>
+  <p>Laying sewer lines and installing related systems.</p>
+</div>
+
+<div class="service">
+  <div class="service-num">08</div>
+  <h3>Water line installation</h3>
+  <p>Laying water lines and carrying out related connections.</p>
+</div>
+
+<div class="service">
+  <div class="service-num">09</div>
+  <h3>Earthworks and excavation</h3>
+  <p>Earthworks, excavation and site preparation.</p>
+</div>
+
+<div class="service">
+  <div class="service-num">10</div>
+  <h3>Roofing and waterproofing</h3>
+  <p>Roof coverings and waterproofing work.</p>
+</div>
+        </div>
+      </div>
+  </section>
+
+  <section id="isler">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">03 / OUR WORK</div>
+          <h2>Selected work</h2>
+        </div>
+
+      </div>
+
+      <div class="work-grid">
+        <article class="work-card">
+          <div class="work-img">PROJECT / WORK PHOTO</div>
+          <div class="work-copy">
+            <small>BAKU, AZERBAIJAN</small>
+            <h3>Work at a project site</h3>
+
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-img">PROJECT / WORK PHOTO</div>
+          <div class="work-copy">
+            <small>BAKU, AZERBAIJAN</small>
+            <h3>Work at a second site</h3>
+
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-img">PROJECT / WORK PHOTO</div>
+          <div class="work-copy">
+            <small>BAKU, AZERBAIJAN</small>
+            <h3>Work at a project site</h3>
+
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-img">PROJECT / WORK PHOTO</div>
+          <div class="work-copy">
+            <small>BAKU, AZERBAIJAN</small>
+            <h3>Work at a second site</h3>
+
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker" style="color:var(--yellow)">04 / OUR PROCESS</div>
+          <h2>How we work</h2>
+        </div>
+
+      </div>
+
+      <div class="steps">
+        <div class="step"><span>01</span><h3>Enquiry</h3><p>We gather initial information about the work.</p></div>
+        <div class="step"><span>02</span><h3>Site review</h3><p>We review the site and scope of work.</p></div>
+        <div class="step"><span>03</span><h3>Agreement</h3><p>We agree on the terms and scope of work.</p></div>
+        <div class="step"><span>04</span><h3>Execution</h3><p>We carry out the agreed construction work.</p></div>
+        <div class="step"><span>05</span><h3>Handover</h3><p>We hand over the completed work.</p></div>
+      </div>
+    </div>
+  </section>
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+
+    <div class="faq-heading">
+      <div class="section-kicker">05 / FAQ</div>
+      <h2>Frequently asked questions</h2>
+      <p>Answers to common questions about our services and how we work.</p>
+    </div>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>How is the price determined?</summary>
+        <div class="faq-answer">
+          <p>Pricing is calculated individually based on the scope, complexity, project requirements and materials involved.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What construction work do you carry out?</summary>
+        <div class="faq-answer">
+          <p>We carry out foundation, reinforced concrete, masonry, plastering, facade, interior finishing, steel structure, water and sewer line work, among other construction activities.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you conduct an initial site visit?</summary>
+        <div class="faq-answer">
+          <p>Yes. Depending on the project, we visit the site, assess the scope and prepare a suitable proposal.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Who supplies the construction materials?</summary>
+        <div class="faq-answer">
+          <p>Material supply is agreed in advance according to the project terms. Depending on the work, materials may be supplied by us or by the client.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How is the completion date set?</summary>
+        <div class="faq-answer">
+          <p>A schedule is prepared after the scope and technical requirements are defined, then agreed with the client.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How can I contact BLOCK Construction?</summary>
+        <div class="faq-answer">
+          <p>Use the form on this site, or contact us by phone, WhatsApp or email.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+<!-- FAQ END -->
+  <section class="contact" id="elaqe">
+    <div class="container">
+      <div class="section-kicker">06 / CONTACT</div>
+      <h2>Contact</h2>
+      <p class="contact-intro">
+        Send us a message using the form or reach us through the contact details below.
+      </p>
+
+      <div class="contact-grid">
+        <div class="form-card">
+          <h3>Online enquiry</h3>
+          <form name="muraciet" method="POST" data-netlify="true" id="muraciet-form">
+  <input type="hidden" name="form-name" value="muraciet">
+
+  <div class="form-group">
+    <label for="name">Full name</label>
+    <input id="name" name="name" type="text" placeholder="Enter your full name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input id="email" name="email" type="email" placeholder="Enter your email address" required>
+  </div>
+
+  <div class="form-group">
+    <label for="subject">Subject</label>
+    <input id="subject" name="movzu" type="text" placeholder="Subject of your message" required>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+  </div>
+
+  <button class="form-submit" type="submit">SEND MESSAGE →</button>
+
+  <p id="form-status"></p>
+</form>
+        </div>
+
+        <aside class="contact-info">
+          <div class="info-block">
+            <h4>Office</h4>
+            <p>
+  <strong>Address:</strong>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=35+Mammad+Araz+Baku"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="contact-link">
+    35B Mammad Araz Street, Baku
+  </a>
+</p>
+          </div>
+
+          <div class="info-block">
+            <h4>Contact details</h4>
+            <p>
+  <strong>Phone:</strong>
+  <a href="tel:+994703326362" class="phone-link">+994 70 332 63 62</a>
+</p>
+            <p>
+  <strong>Email:</strong>
+  <a href="mailto:office@block-construction.az"
+     class="contact-link">
+    office@block-construction.az
+  </a>
+</p>
+            <div class="social-links">
+
+  <!-- WHATSAPP -->
+  <a class="social-link"
+     href="https://wa.me/994703326362"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-4-3.4-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/>
+      <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/>
+    </svg>
+  </a>
+
+  <!-- INSTAGRAM -->
+  <a class="social-link"
+     href="https://www.instagram.com/blockconstruction.az/"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Instagram">
+    <svg viewBox="0 0 24 24">
+      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm10.5 1.5A1.5 1.5 0 1 1 16 7a1.5 1.5 0 0 1 1.5-1.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+    </svg>
+  </a>
+
+  <!-- LINKEDIN -->
+  <a class="social-link"
+     href="#"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24">
+      <path d="M6.5 8.5H3V21h3.5V8.5zM4.75 3A2.05 2.05 0 1 0 4.75 7.1 2.05 2.05 0 0 0 4.75 3zM21 14c0-3.8-2-5.6-4.7-5.6-2.2 0-3.1 1.2-3.7 2V8.5H9.1V21h3.5v-6.2c0-1.6.3-3.2 2.4-3.2 2 0 2.1 1.9 2.1 3.3V21H21v-7z"/>
+    </svg>
+  </a>
+
+</div>
+          </div>
+
+          <div class="info-block">
+  <h4>Working hours</h4>
+  <p><strong>Monday – Friday:</strong> 09:00 – 18:00</p>
+  <p><strong>Saturday – Sunday:</strong> Closed</p>
+</div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- GOOGLE MAPS -->
+<div class="contact-map">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.1601082074353!2d49.83618247599884!3d40.40530375633474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4030878af922080b%3A0xcb797a974ea146d!2s35%20Mammad%20Araz%2C%20Baku!5e0!3m2!1sen!2saz!4v1787470068221!5m2!1sen!2saz"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="strict-origin-when-cross-origin">
+  </iframe>
+</div>
+
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-about">
+        <a href="#ana" class="footer-logo">
+          <img src="../block-construction.jpeg.png" alt="BLOCK Construction">
+        </a>
+
+        <p>
+          Construction and finishing works.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-title">COMPANY</div>
+
+        <div class="footer-links">
+          <a href="#ana">Home</a>
+          <a href="#haqqimizda">About us</a>
+          <a href="#xidmetler">Services</a>
+          <a href="#isler">Our work</a>
+          <a href="#elaqe">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">SERVICES</div>
+
+        <div class="footer-links">
+          <a href="#xidmetler">Foundation works</a>
+          <a href="#xidmetler">Reinforced concrete</a>
+          <a href="#xidmetler">Masonry and plastering</a>
+          <a href="#xidmetler">Facade works</a>
+          <a href="#xidmetler">Interior finishing</a>
+          <a href="#xidmetler">Steel structures</a>
+          <a href="#xidmetler">Sewer line installation</a>
+          <a href="#xidmetler">Water line installation</a>
+          <a href="#xidmetler">Earthworks and excavation</a>
+          <a href="#xidmetler">Roofing and waterproofing</a>
+        </div>
+      </div>
+
+      <div class="footer-contact">
+        <div class="footer-title">CONTACT</div>
+
+        <p>Phone: +994 70 332 63 62</p>
+        <p>
+          <a href="mailto:office@block-construction.az">
+            office@block-construction.az
+          </a>
+        </p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 BLOCK Construction</span>
+      <span>All rights reserved.</span>
+    </div>
+
+  </div>
+</footer>
+<script>
+const form = document.getElementById("muraciet-form");
+const status = document.getElementById("form-status");
+
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  status.textContent = "Sending...";
+
+  try {
+    const formData = new FormData(form);
+
+    const response = await fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams(formData).toString()
+    });
+
+    if (!response.ok) {
+      throw new Error("Could not send");
+    }
+
+    status.textContent = "Your message has been sent.";
+    form.reset();
+  } catch (error) {
+    status.textContent = "Something went wrong. Please try again.";
+  }
+});
+</script>
+</body>
+</html>
