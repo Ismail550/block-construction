@@ -61,12 +61,12 @@
     }
     .menu{display:flex;align-items:center;gap:26px;color:#fff;font-size:14px;font-weight:700}
     .menu a{position:relative;transition:.2s ease}
-    .menu a:not(.cta):after{
+    .menu > a:not(.cta):after{
       content:"";
       position:absolute;left:0;bottom:-8px;width:0;height:2px;
       background:var(--yellow);transition:.2s ease;
     }
-    .menu a:not(.cta):hover:after{width:100%}
+    .menu > a:not(.cta):hover:after{width:100%}
     .menu a:hover{color:var(--yellow)}
     .cta{
       background:var(--yellow);color:var(--black)!important;
@@ -433,7 +433,7 @@
 }
 
     @media(max-width:900px){
-      .menu a:not(.cta){display:none}
+      .menu > a:not(.cta){display:none}
       .about-grid,.contact-wrap,.contact-grid{grid-template-columns:1fr}
       .service{grid-template-columns:70px 1fr}
       .service p{grid-column:2}
@@ -469,8 +469,6 @@
 @media(max-width:700px){
   .contact-map iframe{
     height:330px;
-  }
-}
   }
 }
     .contact-link{
@@ -615,11 +613,28 @@
     font-size:15px;
   }
 }
-    .language-switch{display:flex;justify-content:flex-end;gap:4px;margin-bottom:28px}
-.language-switch a{min-width:42px;padding:7px 9px;text-align:center;border:1px solid rgba(255,255,255,.35);border-radius:7px;color:#eee;font-size:12px;font-weight:800;letter-spacing:.04em;transition:background .2s,color .2s,border-color .2s}
-.language-switch a:hover{border-color:var(--yellow);color:var(--yellow)}
-.language-switch a[aria-current="page"]{background:var(--yellow);border-color:var(--yellow);color:#111}
-  </style>
+
+    /* Language switcher in the hero */
+    .language-switch{display:flex;align-items:center;gap:4px;margin-left:2px;padding-left:12px;border-left:1px solid rgba(255,255,255,.22)}
+    .language-switch a{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:34px;padding:0 8px;border:1px solid rgba(255,255,255,.28);border-radius:8px;color:#eee;font-size:11px;font-weight:800;letter-spacing:.04em;transition:.2s ease}
+    .language-switch a:hover{border-color:var(--yellow);color:var(--yellow)}
+    .language-switch a[aria-current="page"]{background:var(--yellow);border-color:var(--yellow);color:#111}
+    @media(max-width:900px){
+      .menu > a:not(.cta){display:none}
+      .menu{gap:10px}
+      .menu .cta{padding:10px 12px;font-size:12px}
+      .language-switch{padding-left:8px}
+      .language-switch a{min-width:27px;height:32px;padding:0 5px}
+    }
+    @media(max-width:600px){
+      .nav{gap:8px}
+      .logo img{width:118px}
+      .menu{gap:7px}
+      .menu .cta{padding:9px 10px;font-size:11px}
+      .language-switch{gap:3px;padding-left:6px}
+      .language-switch a{min-width:25px;padding:0 4px;font-size:10px}
+    }
+</style>
 </head>
 <body>
 
@@ -635,6 +650,11 @@
       <a href="#xidmetler">XİDMƏTLƏR</a>
       <a href="#isler">GÖRDÜYÜMÜZ İŞLƏR</a>
       <a href="#elaqe" class="cta">ƏLAQƏ SAXLA</a>
+      <div class="language-switch" aria-label="Dil seçimi">
+        <a href="/" aria-current="page">AZ</a>
+        <a href="/en/">EN</a>
+        <a href="/ru/">RU</a>
+      </div>
     </nav>
   </div>
 </header>
@@ -643,15 +663,7 @@
   <section class="hero" id="ana">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-content">
-  <nav class="language-switch" aria-label="Language / Dil / Язык">
-    <a href="/" aria-current="page">AZ</a>
-    <a href="/en/">EN</a>
-    <a href="/ru/">RU</a>
-  </nav>
-
-  <div class="eyebrow">BLOCK CONSTRUCTION</div>
-        <div class="eyebrow">BLOCK CONSTRUCTION</div>
+<div class="eyebrow">BLOCK CONSTRUCTION</div>
         <h1>TİKİNTİ İŞLƏRİNİN İCRASI</h1>
         <p>
           Tikinti layihələrində peşəkar komandamızla keyfiyyətli və etibarlı icra xidmətləri göstəririk.
@@ -695,7 +707,7 @@
           <div class="section-kicker">02 / XİDMƏTLƏR</div>
           <h2>Xidmətlərimiz</h2>
         </div>
-      
+
       </div>
 
       <div class="service-list">
@@ -755,7 +767,6 @@
 </div>
         </div>
       </div>
-    </div>
   </section>
 
   <section id="isler">
@@ -765,7 +776,7 @@
           <div class="section-kicker">03 / GÖRDÜYÜMÜZ İŞLƏR</div>
           <h2>Seçilmiş işlər</h2>
         </div>
-      
+
       </div>
 
       <div class="work-grid">
@@ -774,7 +785,7 @@
           <div class="work-copy">
             <small>BAKI, AZƏRBAYCAN</small>
             <h3>Obyekt üzrə görülmüş iş</h3>
-          
+
           </div>
         </article>
 
@@ -783,9 +794,28 @@
           <div class="work-copy">
             <small>BAKI, AZƏRBAYCAN</small>
             <h3>İkinci obyekt üzrə iş</h3>
-          
+
           </div>
         </article>
+
+        <article class="work-card">
+          <div class="work-img">LAYİHƏ / İŞ FOTOSU</div>
+          <div class="work-copy">
+            <small>BAKI, AZƏRBAYCAN</small>
+            <h3>Obyekt üzrə görülmüş iş</h3>
+
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-img">LAYİHƏ / İŞ FOTOSU</div>
+          <div class="work-copy">
+            <small>BAKI, AZƏRBAYCAN</small>
+            <h3>İkinci obyekt üzrə iş</h3>
+
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -797,7 +827,7 @@
           <div class="section-kicker" style="color:var(--yellow)">04 / İŞ PROSESİ</div>
           <h2>İş prosesi</h2>
         </div>
-      
+
       </div>
 
       <div class="steps">
@@ -978,13 +1008,10 @@
   <p><strong>Bazar ertəsi – Cümə:</strong> 09:00 – 18:00</p>
   <p><strong>Şənbə – Bazar:</strong> İstirahət</p>
 </div>
-          </div>
         </aside>
       </div>
     </div>
   </section>
-</main>
-</section>
 </main>
 
 <!-- GOOGLE MAPS -->
@@ -998,8 +1025,6 @@
 </div>
 
 <footer>
-<footer>
-  <footer>
   <div class="container">
 
     <div class="footer-grid">
@@ -1035,6 +1060,11 @@
           <a href="#xidmetler">Hörgü və suvaq</a>
           <a href="#xidmetler">Fasad işləri</a>
           <a href="#xidmetler">Daxili tamamlama</a>
+          <a href="#xidmetler">Metal konstruksiyalar</a>
+          <a href="#xidmetler">Kanalizasiya xətlərinin çəkilməsi</a>
+          <a href="#xidmetler">Su xətlərinin çəkilməsi</a>
+          <a href="#xidmetler">Torpaq və qazıntı işləri</a>
+          <a href="#xidmetler">Dam və hidroizolyasiya işləri</a>
         </div>
       </div>
 
@@ -1049,7 +1079,6 @@
         </p>
 
         </div>
-      </div>
 
     </div>
 
